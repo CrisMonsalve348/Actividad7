@@ -1,5 +1,6 @@
 <?php 
 session_start();
+require_once "cliente.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,9 +45,13 @@ session_start();
         <br>
         <input type="text" name="monto">
         <br>
-        <input type="submit" value>
+        <input type="submit" value="Retirar" name="retirar">
+        <input type="submit" value="Depositar" name="depositar">
 
     </form>
+    </section>
+    <section class="lista">
+
     </section>
 
     </main>
