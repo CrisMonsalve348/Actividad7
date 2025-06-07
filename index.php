@@ -1,5 +1,6 @@
 <?php 
 session_start();
+
 require_once "cliente.php";
 ?>
 <!DOCTYPE html>
@@ -51,7 +52,17 @@ require_once "cliente.php";
     </form>
     </section>
     <section class="lista">
+    <ul>
+    <?php 
+    
+    foreach($_SESSION["listadecuentas"] as $indice => $cuenta){
+        echo "<li>"; 
+        echo "ID".$indice."".$cuenta->getTitular();
+        echo "</li>";
+    }
+    ?>
 
+    </ul>
     </section>
 
     </main>

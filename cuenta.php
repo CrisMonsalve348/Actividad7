@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+require_once "cliente.php";
 
 $nombre=$email=$saldo="";
 $nombreerror=$emailerror=$saldoerror="";
@@ -52,9 +52,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $_SESSION["nombre"]=$nombre;
         $_SESSION["correo"]=$correo;
         $_SESSION["saldo"]=$saldo;
-        echo "<h1>Cuenta creada</h1>";
-        echo "<br>";
-        echo "<a href='index.php'>Volver</a>";
+        header("location:procesar.php");
 
     }
 

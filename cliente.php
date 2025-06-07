@@ -41,10 +41,10 @@ class cuentaBancaria{
         return "Titular: {$this->titular}, Saldo actual {$this->saldo}";
     }
 }
+if(empty($nombre) && empty($salario)){
+    $nombre=$cliente="";
+}
 
-$nombre=$_SESSION["nombre"];
-$salario=$_SESSION["saldo"];
-$cuenta=new cuentaBancaria($nombre,$salario);
-echo $cuenta->mostrarSaldos();
+
 
 ?>
