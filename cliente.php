@@ -41,9 +41,6 @@ class cuentaBancaria{
         return "Titular: {$this->titular}, Saldo actual {$this->saldo}";
     }
 }
-if(empty($nombre) && empty($salario)){
-    $nombre=$cliente="";
-}
 
 
 

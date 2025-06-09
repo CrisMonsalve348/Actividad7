@@ -39,7 +39,18 @@ require_once "cliente.php";
         cuenta
         <br>
         <select name="cuenta" id="cuenta">
-           
+            <?php
+             foreach($_SESSION["listadecuentas"] as $indice => $cuenta){
+    $arr = (array) $cuenta;
+    $titular = $arr["\0cuentaBancaria\0titular"] ?? "N/D";
+    $saldo = $arr["\0cuentaBancaria\0saldo"] ?? 0;
+    echo "<option>";
+    echo "ID: $indice ";
+    echo " $titular<br> ";
+    
+    echo "</option>";
+   }
+   ?>
         </select>
         <br>
         Monto:
@@ -55,11 +66,20 @@ require_once "cliente.php";
     <ul>
     <?php 
     
-    foreach($_SESSION["listadecuentas"] as $indice => $cuenta){
-        echo "<li>"; 
-        echo "ID".$indice."".$cuenta->getTitular();
-        echo "</li>";
-    }
+    
+    
+   foreach($_SESSION["listadecuentas"] as $indice => $cuenta){
+    $arr = (array) $cuenta;
+    $titular = $arr["\0cuentaBancaria\0titular"] ?? "N/D";
+    $saldo = $arr["\0cuentaBancaria\0saldo"] ?? 0;
+    echo "<li>";
+    echo "ID: $indice ";
+    echo "Titular: $titular ";
+    echo "Saldo: $saldo<br> ";
+    echo "</li>";
+   }
+    
+    
     ?>
 
     </ul>

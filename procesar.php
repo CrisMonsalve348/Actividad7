@@ -13,9 +13,9 @@ $nuevacuenta= new cuentaBancaria($nombre, $salario);
 
 $_SESSION["listadecuentas"][]=$nuevacuenta;
 var_dump($_SESSION["listadecuentas"]);
-header("location:index.php"); 
-//echo "<h1>Cuenta creada</h1>";
-//echo "<br>";
-//echo "<a href='index.php'>Volver</a>";
+
+echo "<h1>Cuenta creada</h1>";
+echo "<br>";
+echo "<a href='index.php'>Volver</a>";
 
 ?>
