@@ -25,12 +25,32 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
     else{
         $monto=floatval($input_monto);
+        $Id=$_POST["cuenta"];
 
     }
 
+    if(empty($montoerror)){
+        if(isset($_POST["accion"]) && $_POST["accion"]=="Depositar"){
+            
+            if (isset($_SESSION["listadecuentas"][$Id])){
+                $_SESSION["listadecuentas"][$Id] -> depositar($monto);
+                header("Location:index.php");
+                
+            }
+            }
+            else{
+             if (isset($_SESSION["listadecuentas"][$Id])){
+                $_SESSION["listadecuentas"][$Id] -> retirar($monto);
+                header("Location:index.php");
+                
+            }
+        }
+        }
+        
+    }
     
-    
-}
+
+
 
 
 

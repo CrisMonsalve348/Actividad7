@@ -35,8 +35,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
     //validar saldo
      $input_saldo=trim($_POST["saldo"]);
-    if(empty($input_saldo)){
-        $saldoerror="el campo esta vacio";
+    if(empty($input_saldo) || $input_saldo<0){
+        $saldoerror="el campo no es valido";
         echo $saldoerror;
     }
     elseif(!is_numeric($input_saldo)){

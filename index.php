@@ -1,7 +1,9 @@
 <?php 
 require_once "cliente.php";
 session_start();
-
+if(!isset($_SESSION["listadecuentas"])){
+    $_SESSION["listadecuentas"]=[];
+}
 
 ?>
 <!DOCTYPE html>
@@ -46,7 +48,7 @@ session_start();
              
     foreach($_SESSION["listadecuentas"] as $indice => $cuenta){
    
-    echo "<option>";
+    echo "<option value=$indice>";
     echo "ID: ". $indice. " ";
     echo "Titular: " . $cuenta->getTitular() . "<br><br>";
     
@@ -62,8 +64,8 @@ session_start();
         <br>
         <input type="text" name="monto">
         <br>
-        <input type="submit" value="Retirar" name="retirar">
-        <input type="submit" value="Depositar" name="depositar">
+        <input type="submit" value="Retirar" name="accion">
+        <input type="submit" value="Depositar" name="accion">
 
     </form>
     </section>
