@@ -9,6 +9,7 @@ require_once "cliente.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./estilos/style.css">
 </head>
 <body>
     <main>
@@ -28,17 +29,18 @@ require_once "cliente.php";
             <br>
             <input type="text" name="saldo">
             <br>
-            <input type="submit" value="Crear cuenta">
+            <input type="submit" name="crear" value="Crear cuenta">
         </form>
     </section>
     <hr>
     <section class="opereciones">
     <h1>Opereciones bancarias</h1>
     <br>    
-    <form action="procesar.php" method="post">
+    <form action="consignas.php" method="post">
         cuenta
         <br>
         <select name="cuenta" id="cuenta">
+            <option value="">Seleccionar</option>
             <?php
              foreach($_SESSION["listadecuentas"] as $indice => $cuenta){
     $arr = (array) $cuenta;
