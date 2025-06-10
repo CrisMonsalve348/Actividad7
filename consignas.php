@@ -1,6 +1,7 @@
 <?php 
-session_start();
 require_once "cliente.php";
+session_start();
+
 
 $monto="";
 $montoerror="";
@@ -27,13 +28,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     }
 
-    if(empty($montoerror)){
-        if(isset($_POST["retirar"])){
-            if($_POST["cuenta"]==$_SESSION["listadecuentas"]){
-
-            }
-        }
-    }
+    
     
 }
 

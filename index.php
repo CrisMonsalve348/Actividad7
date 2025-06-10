@@ -1,7 +1,8 @@
 <?php 
+require_once "cliente.php";
 session_start();
 
-require_once "cliente.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +30,7 @@ require_once "cliente.php";
             <br>
             <input type="text" name="saldo">
             <br>
-            <input type="submit" name="crear" value="Crear cuenta">
+            <input type="submit"  value="Crear cuenta">
         </form>
     </section>
     <hr>
@@ -42,16 +43,18 @@ require_once "cliente.php";
         <select name="cuenta" id="cuenta">
             <option value="">Seleccionar</option>
             <?php
-             foreach($_SESSION["listadecuentas"] as $indice => $cuenta){
-    $arr = (array) $cuenta;
-    $titular = $arr["\0cuentaBancaria\0titular"] ?? "N/D";
-    $saldo = $arr["\0cuentaBancaria\0saldo"] ?? 0;
+             
+    foreach($_SESSION["listadecuentas"] as $indice => $cuenta){
+   
     echo "<option>";
-    echo "ID: $indice ";
-    echo " $titular<br> ";
+    echo "ID: ". $indice. " ";
+    echo "Titular: " . $cuenta->getTitular() . "<br><br>";
     
+   
     echo "</option>";
    }
+  
+   
    ?>
         </select>
         <br>
@@ -71,13 +74,12 @@ require_once "cliente.php";
     
     
    foreach($_SESSION["listadecuentas"] as $indice => $cuenta){
-    $arr = (array) $cuenta;
-    $titular = $arr["\0cuentaBancaria\0titular"] ?? "N/D";
-    $saldo = $arr["\0cuentaBancaria\0saldo"] ?? 0;
+   
     echo "<li>";
-    echo "ID: $indice ";
-    echo "Titular: $titular ";
-    echo "Saldo: $saldo<br> ";
+    echo "ID: ". $indice. " ";
+    echo "Titular: " . $cuenta->getTitular() . " ";
+    echo "Saldo: " . $cuenta->getSaldo() . "<br><br>";
+   
     echo "</li>";
    }
     
